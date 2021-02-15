@@ -70,5 +70,5 @@ Read the arguments needed, below.
 ```
 
 ## Author
-*CaptainWoof*/[@realCaptainWoof](https://www.twitter.com/realCaptainWoof)**
+***CaptainWoof*** // **[@realCaptainWoof](https://www.twitter.com/realCaptainWoof)**
 
