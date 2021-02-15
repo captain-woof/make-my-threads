@@ -70,6 +70,5 @@ Read the arguments needed, below.
 ```
 
 ## Author
-*CaptainWoof*
-**Twitter: [@realCaptainWoof](https://www.twitter.com/realCaptainWoof)**
+*CaptainWoof*/[@realCaptainWoof](https://www.twitter.com/realCaptainWoof)**
 
