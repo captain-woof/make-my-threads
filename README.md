@@ -1,20 +1,20 @@
 # Make-My-Threads
 
-### Table of Contents
+## Table of Contents
 - ***[Introduction](#introduction)***
 - ***[Quick Start](#quick-start)***
 - ***[Usage](#usage)***
 - ***[Arguments](#arguments)***
 - ***[Author](#author)***
 
-### Introduction
+## Introduction
 You have probably come across several tools that work well for you, but are unfortunately single-threaded, and so they take a long time to finish. You may have wished the developer would someday implement multi-concurrent threads.
 
 Well now, you need not wish anymore.
 
 **'Make-My-Threads' is a simple tool that spins up a specified number of concurrent threads and have them execute any specifed command; and supports dynamic arguments (from input-files) as well.**
 
-##### Here's an example
+### Here's an example
 Let's say a tool called 'slow-tool' needs 2 arguments, one of them is an alphabet, the other is a number, and you invoke it like:
 
 ```
@@ -22,14 +22,14 @@ Let's say a tool called 'slow-tool' needs 2 arguments, one of them is an alphabe
 ```
 And you have several argument sets to run (say, a-z, and for each one of them, corresponding 1-9, like 'a 2', 'a 3',...), but **writing a simple bash automation script would still execute the tool slowly**, since the commands would run one-by-one. **Make-My-Threads can solve this...**
 
-### Quick Start
+## Quick Start
 For the above example, you'd probably use Make-My-Threads as:
 ```
 ./make_my_threads.py --threads 50 --command "./slow-tool ARG1 ARG2" --mode clusterbomb -f alphabets.txt:ARG1 -f numbers.txt:ARG2
 ```
 Where 'alphabets.txt' and 'numbers.txt' provide the first and second arguments to your chosen command *(Prepare these input text files first)*, and 'ARG1' and 'ARG2' are placeholders for these arguments. **You can use any arbitrary number of dynamic arguments.**
 
-### Usage
+## Usage
 There are **3 modes** in which 'Make-My-Threads' can work:
 - **Clusterbomb**: *Uses every permutation of provided arguments, say 1st-1st,1st-2nd,...*
 - **Pitchfork**: *Uses only corresponding arguments, say 1st-1st arg, 2nd-2nd,...*
@@ -41,7 +41,7 @@ There are **3 modes** in which 'Make-My-Threads' can work:
 
 Read the arguments needed, below.
 
-### Arguments
+## Arguments
 ```
   -h, --help            show this help message and exit
   -t THREADS, --threads THREADS
@@ -69,7 +69,7 @@ Read the arguments needed, below.
                         commands executed; default: false
 ```
 
-### Author
+## Author
 *CaptainWoof*
 **Twitter: [@realCaptainWoof](https://www.twitter.com/realCaptainWoof)**
 
