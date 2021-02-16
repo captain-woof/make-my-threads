@@ -94,7 +94,9 @@ def thread_func():
 		except Empty:
 			return		
 		print(cmd)
-		subprocess.Popen(cmd,shell=True,stdout=output,stderr=output)
+		p = subprocess.Popen(cmd,shell=True,stdout=output,stderr=output)
+		while p.poll() is None:
+			continue
 threads = []
 print("[+] Starting {} threads".format(max_threads))
 for i in range(0,max_threads):
