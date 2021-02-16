@@ -85,18 +85,23 @@ elif mode == 'clusterbomb': # 'clusterbomb' mode
 		queue.put(cmd)
 
 
-# EXECUTION BEGINS
-def thread_func():
-	output = subprocess.PIPE if quiet else None
+# Thread function
+def thread_func():	
 	while True:
 		try:
 			cmd = queue.get(block=True,timeout=1)
 		except Empty:
 			return		
 		print(cmd)
-		p = subprocess.Popen(cmd,shell=True,stdout=output,stderr=output)
-		while p.poll() is None:
-			continue
+		p = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,bufsize=1,universal_newlines=True)
+		while p.poll() is None:			
+				out = (p.stdout.readline() + p.stderr.readline()).strip()
+				if out != '' and not quiet:
+					print(out)
+		p.terminate()
+		p.wait()
+		
+# DRIVER CODE
 threads = []
 print("[+] Starting {} threads".format(max_threads))
 for i in range(0,max_threads):
